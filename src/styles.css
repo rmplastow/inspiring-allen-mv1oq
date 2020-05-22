@@ -1,0 +1,73 @@
+body {
+  font-family: sans-serif;
+  background: #222;
+  color: #999;
+  font-size: 3em;
+}
+div {
+  position: absolute;
+}
+.hexagon {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: red;
+  width: 1em;
+  height: 1.1547005em;
+}
+
+.hexagon.barrier {
+  background: green;
+}
+.hexagon.grass {
+  background: limegreen;
+  cursor: pointer;
+  transition: background 0.5s;
+}
+.hexagon.grass:hover,
+.hexagon.grass.current {
+  background: #9f9;
+}
+
+.avatar {
+  margin: 0.4em 0 0 0.3em;
+  transition: left 0.5s, top 0.5s;
+}
+.avatar > div {
+  position: absolute;
+  background: inherit;
+  border-radius: 0.05em;
+}
+.avatar .head {
+  width: 0.2em;
+  height: 0.2em;
+  left: 0.1em;
+  top: -0.2em;
+}
+.avatar .torso {
+  width: 0.4em;
+  height: 0.3em;
+}
+.avatar .leg {
+  width: 0.15em;
+  height: 0.3em;
+  top: 0.2em;
+}
+.avatar .left.leg {
+  left: 0.05em;
+}
+.avatar .right.leg {
+  left: 0.2em;
+}
+.avatar.running .left.leg {
+  animation: 0.25s infinite alternate ease-in-out leg-cycle;
+}
+.avatar.running .right.leg {
+  animation: 0.25s infinite alternate ease-in-out 0.25s leg-cycle;
+}
+@keyframes leg-cycle {
+  from {
+    top: 0.15em;
+  }
+  to {
+    top: 0.2em;
+  }
+}
